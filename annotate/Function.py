@@ -54,7 +54,9 @@ for line in lines[1:]:
 
 for untg in untg_compounds:
     for compound in compounds:
-        if untg.check_between_mz(compound.get_mz()) and untg.check_between_rt(compound.get_avg_rt()):
+        if untg.check_between_mz(compound.get_mz()) and \
+           untg.check_between_rt(compound.get_min_rt(), compound.get_max_rt()):
+
             untg.add_poss_match(compound.get_name())
 
             
